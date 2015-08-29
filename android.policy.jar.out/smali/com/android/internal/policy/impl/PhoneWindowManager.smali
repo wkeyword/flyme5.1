@@ -235,6 +235,8 @@
 
 .field mzPwm:Lcom/android/internal/policy/impl/MzPhoneWindowManager;
 
+.field mMzKeyguardSecure:Ljava/lang/Boolean;
+
 .field mAccelerometerDefault:Z
 
 .field mAccessibilityManager:Landroid/view/accessibility/AccessibilityManager;
