@@ -694,8 +694,6 @@
 
 .field private mScreenshotChordPowerKeyTriggered:Z
 
-.field private mScreenshotChordVolumeDownKeyConsumed:Z
-
 .field private mScreenshotChordVolumeDownKeyTime:J
 
 .field private mScreenshotChordVolumeDownKeyTriggered:Z
@@ -705,6 +703,8 @@
 .field mScreenshotConnection:Landroid/content/ServiceConnection;
 
 .field final mScreenshotLock:Ljava/lang/Object;
+
+.field private final mScreenshotRunnable:Ljava/lang/Runnable;
 
 .field final mScreenshotTimeout:Ljava/lang/Runnable;
 
