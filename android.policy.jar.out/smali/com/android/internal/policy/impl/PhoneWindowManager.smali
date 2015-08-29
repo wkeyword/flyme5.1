@@ -692,6 +692,8 @@
 
 .field private mScreenshotChordPowerKeyTriggered:Z
 
+.field private mScreenshotChordVolumeDownKeyConsumed:Z
+
 .field private mScreenshotChordVolumeDownKeyTime:J
 
 .field private mScreenshotChordVolumeDownKeyTriggered:Z
@@ -3316,7 +3318,7 @@
 
     iput-wide v8, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mScreenshotChordPowerKeyTime:J
 
-    invoke-direct {p0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->interceptPowerVolumeDownChord()V
+    invoke-direct {p0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->mzInterceptScreenshotChord()V
 
     invoke-direct {p0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->interceptPowerVolumeUpChord()V
 
@@ -16896,7 +16898,7 @@
     goto/16 :goto_3
 
     :cond_11
-    invoke-virtual/range {p0 .. p0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->getTelecommService()Landroid/telecom/TelecomManager;
+    invoke-static {}, Lcom/android/internal/policy/impl/PhoneWindowManager$FlymeInjector;->getFlymeTelecommService()Landroid/telecom/TelecomManager;
 
     move-result-object v39
 
@@ -18978,7 +18980,7 @@
 
     and-int v4, v4, v31
 
-    if-eqz v4, :cond_64
+    if-eqz v4, :cond_flyme_1
 
     .line 3526
     const-wide/16 v6, -0x1
@@ -19540,6 +19542,8 @@
 
     .line 5508
     :sswitch_0
+    invoke-direct/range {p0 .. p1}, Lcom/android/internal/policy/impl/PhoneWindowManager;->mzInterceptVolumeKeyUpForTelephony(Landroid/view/KeyEvent;)V
+
     if-eqz v13, :cond_17
 
     move-object/from16 v0, p0
@@ -19652,7 +19656,7 @@
 
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->cancelPendingPowerKeyAction()V
 
-    invoke-direct/range {p0 .. p0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->interceptPowerVolumeDownChord()V
+    invoke-direct/range {p0 .. p0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->mzInterceptScreenshotChord()V
 
     :cond_19
     :goto_c
@@ -19678,6 +19682,8 @@
     invoke-static/range {v24 .. v25}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual/range {v22 .. v22}, Landroid/telecom/TelecomManager;->silenceRinger()V
+
+    invoke-direct/range {p0 .. p1}, Lcom/android/internal/policy/impl/PhoneWindowManager;->mzInterceptVolumeKeyDownForTelephony(Landroid/view/KeyEvent;)V
 
     and-int/lit8 v20, v20, -0x2
 
