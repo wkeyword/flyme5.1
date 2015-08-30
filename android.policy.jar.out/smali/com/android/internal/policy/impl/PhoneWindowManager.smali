@@ -694,6 +694,8 @@
 
 .field private mScreenshotChordPowerKeyTriggered:Z
 
+.field private mScreenshotChordVolumeDownKeyConsumed:Z
+
 .field private mScreenshotChordVolumeDownKeyTime:J
 
 .field private mScreenshotChordVolumeDownKeyTriggered:Z
@@ -819,10 +821,6 @@
 .field mVolBtnMusicControls:Z
 
 .field private mVolumeDownAction:Ljava/lang/String;
-
-.field private final mVolumeDownChordRunnable:Ljava/lang/Runnable;
-
-.field private mVolumeDownKeyConsumedByKeyChord:Z
 
 .field private mVolumeDownKeyTriggered:Z
 
@@ -1343,7 +1341,7 @@
 
     invoke-direct {v0, p0}, Lcom/android/internal/policy/impl/PhoneWindowManager$6;-><init>(Lcom/android/internal/policy/impl/PhoneWindowManager;)V
 
-    iput-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mVolumeDownChordRunnable:Ljava/lang/Runnable;
+    iput-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mScreenshotRunnable:Ljava/lang/Runnable;
 
     .line 1437
     new-instance v0, Lcom/android/internal/policy/impl/PhoneWindowManager$7;
@@ -1548,15 +1546,15 @@
     return-void
 .end method
 
-.method static synthetic access$1600(Lcom/android/internal/policy/impl/PhoneWindowManager;)Ljava/lang/String;
-    .locals 1
+.method static synthetic access$1600(Lcom/android/internal/policy/impl/PhoneWindowManager;)V
+    .locals 0
     .param p0, "x0"    # Lcom/android/internal/policy/impl/PhoneWindowManager;
 
     .prologue
-    .line 154
-    iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mVolumeDownAction:Ljava/lang/String;
+    .line 149
+    invoke-direct {p0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->takeScreenshot()V
 
-    return-object v0
+    return-void
 .end method
 
 .method static synthetic access$1700(Lcom/android/internal/policy/impl/PhoneWindowManager;)Ljava/lang/String;
@@ -2239,7 +2237,7 @@
     .line 1412
     iget-object v0, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mHandler:Landroid/os/Handler;
 
-    iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mVolumeDownChordRunnable:Ljava/lang/Runnable;
+    iget-object v1, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mScreenshotRunnable:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
 
@@ -3656,7 +3654,7 @@
     .line 1371
     const/4 v2, 0x1
 
-    iput-boolean v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mVolumeDownKeyConsumedByKeyChord:Z
+    iput-boolean v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mScreenshotChordVolumeDownKeyConsumed:Z
 
     .line 1372
     invoke-direct {p0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->cancelPendingPowerKeyAction()V
@@ -3664,7 +3662,7 @@
     .line 1374
     iget-object v2, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mHandler:Landroid/os/Handler;
 
-    iget-object v3, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mVolumeDownChordRunnable:Ljava/lang/Runnable;
+    iget-object v3, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mScreenshotRunnable:Ljava/lang/Runnable;
 
     invoke-direct {p0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->getVolumeDownChordLongPressDelay()J
 
@@ -16691,7 +16689,7 @@
 
     move-object/from16 v0, p0
 
-    iget-boolean v4, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mVolumeDownKeyConsumedByKeyChord:Z
+    iget-boolean v4, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mScreenshotChordVolumeDownKeyConsumed:Z
 
     if-eqz v4, :cond_8
 
@@ -16703,7 +16701,7 @@
 
     move-object/from16 v0, p0
 
-    iput-boolean v4, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mVolumeDownKeyConsumedByKeyChord:Z
+    iput-boolean v4, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mScreenshotChordVolumeDownKeyConsumed:Z
 
     .line 3059
     :cond_7
@@ -18116,7 +18114,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v6, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mVolumeDownChordRunnable:Ljava/lang/Runnable;
+    iget-object v6, v0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mScreenshotRunnable:Ljava/lang/Runnable;
 
     invoke-virtual {v4, v6}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
@@ -19654,7 +19652,7 @@
 
     move-object/from16 v1, p0
 
-    iput-boolean v0, v1, Lcom/android/internal/policy/impl/PhoneWindowManager;->mVolumeDownKeyConsumedByKeyChord:Z
+    iput-boolean v0, v1, Lcom/android/internal/policy/impl/PhoneWindowManager;->mScreenshotChordVolumeDownKeyConsumed:Z
 
     invoke-direct/range {p0 .. p0}, Lcom/android/internal/policy/impl/PhoneWindowManager;->cancelPendingPowerKeyAction()V
 
