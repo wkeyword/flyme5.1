@@ -34,11 +34,11 @@
 
 .field public static final INTENT_VALUE_ICC_UNKNOWN:Ljava/lang/String; = "UNKNOWN"
 
+.field public static final INTENT_VALUE_LOCKED_NETWORK:Ljava/lang/String; = "NETWORK"
+
 .field public static final INTENT_VALUE_LOCKED_ON_PIN:Ljava/lang/String; = "PIN"
 
 .field public static final INTENT_VALUE_LOCKED_ON_PUK:Ljava/lang/String; = "PUK"
-
-.field public static final INTENT_VALUE_LOCKED_PERSO:Ljava/lang/String; = "PERSO"
 
 
 # direct methods
