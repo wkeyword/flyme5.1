@@ -137,7 +137,9 @@ override_property += \
 # The default value is Unofficial.
 # You should configure the property according to your ID, ie, replace "Unofficial" with your ID.
 override_property += \
-    ro.flyme.romer=ZBDXY
+    ro.flyme.romer=ZBDXY \
+    ro.flyme.version.code=1 \
+    ro.product.model_romer=i9300_ZBDXY
 
 ##############################################################################
 # The value decides which property you will remove from the build.prop.
