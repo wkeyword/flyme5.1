@@ -6545,7 +6545,9 @@
     iput-boolean v10, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mHardwareKeysDisabled:Z
 
     .line 1820
-    iput v8, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mPressOnMenuBehavior:I
+    const/16 v10, 0x8
+
+    iput v10, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mPressOnMenuBehavior:I
 
     .line 1822
     iget-object v10, p0, Lcom/android/internal/policy/impl/PhoneWindowManager;->mContext:Landroid/content/Context;
